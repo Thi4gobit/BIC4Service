@@ -5,8 +5,8 @@ from model import Session, Produto
 from model.comentario import Comentario
 
 
-# app = Flask(__name__)
-app = Flask("abc")
+app = Flask(__name__,template_folder='templates')
+# app = Flask("abc")
 
 @app.route('/')
 def home():
