@@ -5,7 +5,7 @@ from sqlalchemy import create_engine
 # importando os elementos definidos no modelo
 from model.base import Base
 from model.comentario import Comentario
-from model.produto import Produto
+from model.service import Service
 
 
 # url de acesso ao banco (essa é uma url de acesso ao sqlite local)
