@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<header>
+    <h1 align="center">All Registed Units</h1>
+</header>
+
+<section>
+
+    <form action="/unit_register" method="post">
+        
+        developer code: 
+        <label for="unit">Unit:</label>
+        <input type="text" size="20" maxlength="40" name="unit" /><br />
+        <label for="abbreviation">Abbreviation:</label>
+        <input type="text" size="20" maxlength="40" name="abbreviation" /><br />
+        <input type="submit" value="Submit" />
+    
+    </form>
+
+</section>
+
+<section class="list">
+    <h2 align="left">Unitss List</h2>
+    <p> Em produção... </p>
+
+</section>
+
+  {% endblock %}

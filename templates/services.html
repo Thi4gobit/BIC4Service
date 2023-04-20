@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<header>
+    <h1 align="center">All Registed Services</h1>
+</header>
+
+<section>
+
+    <form action="/service_register" method="post">
+        
+        <label for="developer_code">Developer Code:</label>
+        <input type="text" size="20" maxlength="40" name="developer_code" /><br />
+        <label for="base_description">Base Description:</label>
+        <textarea cols="100" rows="2" wrap="soft" name="base_description"></textarea><br />
+        <label for="especification">Especification:</label>
+        <textarea cols="100" rows="5" wrap="soft" name="especification"></textarea><br />
+        <label for="manufactory_reference">Manufactory Reference:</label>
+        <input type="text" size="50" maxlength="255" name="manufactory_reference" /><br />
+        <input type="submit" value="Submit" />
+    
+    </form>
+
+</section>
+
+<section class="list">
+    <h2 align="left">Services List</h2>
+
+{% endblock %}

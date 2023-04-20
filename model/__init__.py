@@ -1,20 +1,25 @@
 from sqlalchemy_utils import database_exists, create_database
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
+import os
 
-# importando os elementos definidos no modelo
 from model.base import Base
-from model.comentario import Comentario
+from model.classification import Classification
+from model.unit import Unit
 from model.service import Service
 
+db_path = "database/"
+# Cria o diretorio se ele não existir
+if not os.path.exists(db_path):
+   os.makedirs(db_path)
 
 # url de acesso ao banco (essa é uma url de acesso ao sqlite local)
-db_url = 'sqlite:///database/db.sqlite3'
+db_url = 'sqlite:///%s/db.sqlite3' % db_path
 
 # cria a engine de conexão com o banco
 engine = create_engine(db_url, echo=False)
 
-# Instancia um criador de seção com o banco
+# instancia um criador de seção com o banco
 Session = sessionmaker(bind=engine)
 
 # cria o banco se ele não existir 

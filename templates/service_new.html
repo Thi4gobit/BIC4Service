@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<header>
+    <h1 align="center">New Service</h1>
+</header>
+
+<section>
+    
+    <form action="/service_register" method="post">
+        
+        developer code: <input type="text" size="20" maxlength="40" name="developer_code" /><br />
+        base description: <textarea cols="100" rows="2" wrap="soft" name="base_description"></textarea><br />
+        especification: <textarea cols="100" rows="5" wrap="soft"></textarea><br />
+        manufactory reference: <input type="text" size="50" maxlength="255" name="manufactory_reference" /><br />
+        <input type="submit" value="Send" />
+    
+    </form>
+
+</section>
+
+{% endblock %}

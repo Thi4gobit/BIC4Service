@@ -1,0 +1,104 @@
+from flask import Flask, request, send_from_directory, render_template
+from sqlalchemy.exc import IntegrityError
+
+from model import Session, Service
+from model.classification import Classification
+from model.unit import Unit
+
+
+
+app = Flask(__name__,template_folder='templates')
+
+
+@app.route('/')
+def home():
+    return render_template("home.html"), 200
+
+@app.route('/service_new', methods=['POST'])
+def add_service():
+    session = Session()
+    service = Service(
+        developer_code = form.code,
+        description = form.description
+    )
+    session.add(service)
+    session.commit()
+    return render_template("home.html"), 200
+
+
+
+
+
+"""
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory('static', 'favicon.ico', mimetype='image/x-icon')
+
+
+@app.route('/add_service', methods=['POST'])
+def add_service():
+    session = Session()
+    service = Service(
+        nome=request.form.get("nome"),
+        quantidade=request.form.get("quantidade"),
+        valor=request.form.get("valor")
+    )
+    try:
+        # adicionando service
+        session.add(service)
+        # efetivando o camando de adição de novo item na tabela
+        session.commit()
+        return render_template("service.html", service=service), 200
+    except IntegrityError as e:
+        error_msg = "Service de mesmo nome já salvo na base :/"
+        return render_template("error.html", error_code=409, error_msg=error_msg), 409
+    except Exception as e:
+        error_msg = "Não foi possível salvar novo item :/"
+        print(str(e))
+        return render_template("error.html", error_code=400, error_msg=error_msg), 400
+
+
+@app.route('/get_service/<service_id>', methods=['GET'])
+def get_service(service_id):
+    session = Session()
+    service = session.query(Service).filter(Service.id == service_id).first()
+    if not service:
+        error_msg = "Service não encontrado na base :/"
+        return render_template("error.html", error_code= 404, error_msg=error_msg), 404
+    else:
+        return render_template("service.html", service=service), 200
+
+
+@app.route('/del_service/<service_id>', methods=['DELETE'])
+def del_service(service_id):
+    session = Session()
+    count = session.query(Service).filter(Service.id == service_id).delete()
+    session.commit()
+    if count ==1:
+        return render_template("deletado.html", service_id=service_id), 200
+    else: 
+        error_msg = "Service não encontrado na base :/"
+        return render_template("error.html", error_code=404, error_msg=error_msg), 404
+
+
+@app.route('/add_comentario/<service_id>', methods=['POST'])
+def add_comentario(service_id):
+    session = Session()
+    service = session.query(Service).filter(Service.id == service_id).first()
+    if not service:
+        error_msg = "Service não encontrado na base :/"
+        return render_template("error.html", error_code= 404, error_msg=error_msg), 404
+
+    autor = request.form.get("autor")
+    texto = request.form.get("texto")
+    n_estrelas = request.form.get("n_estrela")
+    if n_estrelas:
+        n_estrelas = int(n_estrelas)
+
+    comentario = Comentario(autor, texto, n_estrelas)
+    service.adiciona_comentario(comentario)
+    session.commit()
+    return render_template("service.html", service=service), 200
+
+"""

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+  <h1 align="center">ITC Service</h1>
+
+    <form action="/home">
+        
+        <label for="login">Login:</label><br />
+        <input type="text" size="20" maxlength="40" id="login" name="login" /><br /><br />
+        <label for="password">Pasword:</label><br />
+        <input type="text" size="20" maxlength="40" id="password" name="password" /><br />
+        <input type="submit" value="Submit" />
+
+    </form>
+
+{% endblock %}

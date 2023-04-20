@@ -1,9 +1,17 @@
-<!DOCTYPE html>
-<html>
-<body>
+{% extends 'base.html' %}
 
-<h1>Apenas uma Home</h1>
-<p> Em produção </p>
+{% block conteudo %}
 
-</body>
-</html>
+<nav> 
+  <a href="/new_project">New Project</a> |
+  <a href="/open_project">Open Project</a> |
+  <a href="/services">Services</a> |
+  <a href="/units">Units</a> |
+  <a href="/classification">Classification</a> |
+  <a href="/logout">Logout</a>
+</nav>
+
+  <h1 align="center">Home</h1>
+  <h2 align="right">User name (cod.: 0000)</h2>
+
+{% endblock %}
